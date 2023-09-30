@@ -9,19 +9,21 @@ let package = Package(
     products: [
         .library(
             name: "ConnectSDKWatch",
-            targets: ["ConnectSDKWatch", "Protobuf"])
+            targets: ["ConnectSDKWatch", "ConnectSDKWatchDependencies"])
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.16.0")
+        .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.16.0"),
+        .package(url: "https://github.com/unrelentingtech/SwiftCBOR.git", from: "0.4.4")
     ],
     targets: [
         .binaryTarget(
             name: "ConnectSDKWatch",
-            url: "https://dl.cloudsmith.io/CujHIwqxWVjq8tLK/proglove/markconnectiossdk-dev/raw/versions/1.8.0/ConnectSDKWatch-1.8.0.xcframework.zip",
-            checksum: "688267076362711b0cf17242928c60325af59a64388d2531c6177cf45bf368e6"),
+            url: "https://dl.cloudsmith.io/CujHIwqxWVjq8tLK/proglove/markconnectiossdk-dev/raw/versions/2.0.0/ConnectSDKWatch-2.0.0.xcframework.zip",
+            checksum: "1adf696be4c35a62b54772efa92f06be0a7a6b0b3d571c944eadbc9956b40f9b"),
         .target(
-            name: "Protobuf",
+            name: "ConnectSDKWatchDependencies",
             dependencies: [
+                "SwiftCBOR",
                 .product(name: "SwiftProtobuf", package: "swift-protobuf")
             ],
             path: "Sources/ConnectSDK"
