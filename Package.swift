@@ -8,7 +8,7 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "ConnectSDK",
+            name: "ConnectSDKWatch",
             targets: ["ConnectSDK", "ConnectSDKWatchDependencies"])
     ],
     dependencies: [
